@@ -5,82 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIG Apparel | Trust in God</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        function signUp() {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    alert("Account Created Successfully!");
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        }
+
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("open");
+        }
+    </script>
     <style>
         body {
             text-align: center;
             color: white;
+            font-family: Arial, sans-serif;
         }
-        .shop-now {
-            display: inline-block;
-            background-color: #000;
-            color: #fff;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-        .shop-now:hover {
-            background-color: #444;
-        }
-        .email-signup {
-            margin-top: 100px;
-            width: 100%;
-        }
-        .email-signup input {
-            background: transparent;
-            border: 2px solid #fff;
-            padding: 10px;
-            font-size: 16px;
-            width: 250px;
-            text-align: center;
-            color: white;
-        }
-        .email-signup button {
-            background: transparent;
-            border: 2px solid #fff;
-            padding: 10px 20px;
-            font-size: 16px;
+        .menu-toggle {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 30px;
             cursor: pointer;
-            transition: background 0.3s;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .menu.open {
+            display: block;
+        }
+        .menu a {
+            display: block;
             color: white;
+            text-decoration: none;
+            padding: 5px 0;
         }
-        .email-signup button:hover {
-            background: #fff;
-            color: #000;
+        .animated {
+            animation: fadeIn 2s ease-in-out;
         }
-        .featured {
-            margin-top: 100px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .blog-section {
+            margin-top: 50px;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            display: inline-block;
-        }
-        .countdown {
-            margin-top: 50px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .faith-message {
-            margin-top: 50px;
-            font-size: 20px;
-            font-style: italic;
-        }
-        .socials {
-            margin-top: 50px;
-        }
-        .socials a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 18px;
         }
     </style>
 </head>
 <body>
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <div id="menu" class="menu">
+        <a href="#" onclick="alert('Sign In Clicked')">Sign In</a>
+        <a href="#" onclick="alert('Sign Up Clicked')">Sign Up</a>
+        <a href="#" onclick="alert('Wishlist Clicked')">Wishlist</a>
+    </div>
+
+    <section class="socials">
+        <h2>Follow Us</h2>
+        <a href="https://www.instagram.com/tigshirts/" target="_blank">Instagram</a>
+        <a href="https://www.pinterest.com/TIGShirts/" target="_blank">Pinterest </a>
+        <a href="https://www.tiktok.com/@tigshirts" target="_blank">TikTok</a>
+    </section>
     <header>
-        <h1>TIG Apparel</h1>
+   
+        <h1 class="animated">TIG Apparel</h1>
         <p class="slogan">"Wear Your Faith, Inspire the World."</p>
         <nav>
             <ul>
@@ -88,57 +104,65 @@
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="catalog.html">Catalog</a></li>
                 <li><a href="cart.html">Cart</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
     
-    <section class="banner">
-        <h2>Faith Meets Fashion</h2>
-        <p>Express your belief with style. Explore our faith-inspired apparel today!</p>
-        <a href="shop.html" class="shop-now">Shop Now</a>
+    <section class="blog-section">
+        <h2>Faith & Inspiration</h2>
+        <article>
+            <h3>How Faith Guides Us</h3>
+            <p>Trusting in God during tough times can strengthen our faith...</p>
+            <a href="blog.html">Read More</a>
+        </article>
     </section>
     
+    <section class="signup">
+        <h2>Create an Account</h2>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <button onclick="signUp()">Sign Up</button>
+    </section>
     <section class="faith-message">
-        <h2>Daily Inspiration</h2>
-        <p>"Trust in the Lord with all your heart and lean not on your own understanding." - Proverbs 3:5</p>
-    </section>
-    
-    
-    
-    <section class="socials">
-        <h2>Follow Us</h2>
-        <a href="https://www.instagram.com/tigshirts/" target="_blank">Instagram</a>
-        <a href="https://www.pinterest.com/TIGShirts/" target="_blank">Pinterest </a>
-        <a href="https://www.tiktok.com/@tigshirts" target="_blank">TikTok</a>
-    </section>
-    
-    <section class="email-signup">
-        <h2>Stay Connected</h2>
-        <p>Subscribe to get the latest updates, special offers, and new arrivals.</p>
-        <form action="#" method="post">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-    
-    <script>
-        function countdown() {
-            let endDate = new Date("March 31, 2025 23:59:59").getTime();
-            let x = setInterval(function() {
-                let now = new Date().getTime();
-                let distance = endDate - now;
-                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("timer").innerHTML = "Sale Ended!";
-                }
-            }, 1000);
+    <h2>Daily Inspiration</h2>
+    <p id="bible-verse"></p>
+</section>
+
+<script>
+    const bibleVerses = [
+        "\"Trust in the Lord with all your heart and lean not on your own understanding.\" - Proverbs 3:5",
+        "\"I can do all things through Christ who strengthens me.\" - Philippians 4:13",
+        "\"Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.\" - Joshua 1:9",
+        "\"Cast all your anxiety on Him because He cares for you.\" - 1 Peter 5:7",
+        "\"For we walk by faith, not by sight.\" - 2 Corinthians 5:7"
+    ];
+
+    function getDailyVerse() {
+        let storedVerse = localStorage.getItem("dailyVerse");
+        let storedDate = localStorage.getItem("verseDate");
+        let today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+
+        if (storedDate === today && storedVerse) {
+            document.getElementById("bible-verse").innerText = storedVerse; // Show stored verse
+        } else {
+            let randomIndex = Math.floor(Math.random() * bibleVerses.length);
+            let newVerse = bibleVerses[randomIndex];
+
+            localStorage.setItem("dailyVerse", newVerse);
+            localStorage.setItem("verseDate", today);
+            document.getElementById("bible-verse").innerText = newVerse; // Show new verse
         }
-        countdown();
-    </script>
+    }
+
+    getDailyVerse();
+</script>
+
 </body>
 </html>
+
+    
+    
+    
+    
+
