@@ -1,4 +1,3 @@
-// JavaScript for Shop Page - Handles Adding to Cart
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.querySelectorAll(".add-to-cart");
 
