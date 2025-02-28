@@ -3,42 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIG Apparel</title>
+    <title>TIG Apparel | Trust in God</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <header>
-        <h1>Welcome to TIG Apparel</h1>
+        <h1>TIG Apparel</h1>
+        <p class="slogan">"Wear Your Faith, Inspire the World."</p>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Catalog</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="cart.html">Cart</a></li>
             </ul>
         </nav>
     </header>
-
-    <section class="products">
-        <h2>Our Products</h2>
-        <div class="product-list">
-            <div class="product">
-                <img src="shirt1.jpg" alt="TIG Shirt">
-                <p>Faith Over Fear Shirt</p>
-                <button onclick="addToCart('Faith Over Fear Shirt')">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="shirt2.jpg" alt="TIG Shirt">
-                <p>Trust in God Hoodie</p>
-                <button onclick="addToCart('Trust in God Hoodie')">Add to Cart</button>
-            </div>
-        </div>
+    
+    <section class="banner">
+        <h2>Faith Meets Fashion</h2>
+        <p>Express your belief with style. Explore our faith-inspired apparel today!</p>
+        <a href="shop.html" class="shop-now">Shop Now</a>
     </section>
-
+    
+    <section class="email-signup">
+        <h2>Stay Connected</h2>
+        <p>Subscribe to get the latest updates, special offers, and new arrivals.</p>
+        <form action="#" method="post">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+    
     <footer>
         <p>&copy; 2025 TIG Apparel. All Rights Reserved.</p>
     </footer>
-
-    <script src="script.js"></script> 
 </body>
 </html>
