@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist | TIG Apparel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function displayWishlist() {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            let wishlistContainer = document.getElementById('wishlist-items');
+            wishlistContainer.innerHTML = '';
+
+            if (wishlist.length === 0) {
+                wishlistContainer.innerHTML = '<p>Your wishlist is empty.</p>';
+            } else {
+                wishlist.forEach((item, index) => {
+                    let listItem = document.createElement('div');
+                    listItem.classList.add('wishlist-item');
+                    listItem.innerHTML = `
+                        <p>${item}</p>
+                        <button onclick="removeFromWishlist(${index})">Remove</button>
+                    `;
+                    wishlistContainer.appendChild(listItem);
+                });
+            }
+        }
+
+        function removeFromWishlist(index) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.splice(index, 1);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            displayWishlist();
+        }
+
+        document.addEventListener('DOMContentLoaded', displayWishlist);
+    </script>
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .wishlist-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .wishlist-item {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .wishlist-item button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Wishlist</h1>
+    <div class="wishlist-container">
+        <div id="wishlist-items"></div>
+    </div>
+    <a href="index.html" class="back-home">Back to Home</a>
+</body>
+</html>
