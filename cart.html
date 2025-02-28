@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart | TIG Apparel</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .cart-items {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #cart-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f4f4f4;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            width: 50%;
+            justify-content: space-between;
+        }
+        .remove-item {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cart-empty {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,7 +60,7 @@
     <section class="cart-items">
         <h2>Items in Your Cart</h2>
         <ul id="cart-list"></ul>
-        <button onclick="clearCart()">Clear Cart</button>
+        <p id="cart-empty" class="cart-empty">Your cart is empty.</p>
     </section>
     
     <footer>
@@ -32,3 +70,4 @@
     <script src="cart.js"></script>
 </body>
 </html>
+
