@@ -1,10 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let buttons = document.querySelectorAll(".add-to-cart");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | TIG Apparel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Shop TIG Apparel</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="products">
+        <h2>Our Products</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="shirt1.jpg" alt="TIG Shirt">
+                <p>Faith Over Fear Shirt</p>
+                <button class="add-to-cart" data-product="Faith Over Fear Shirt">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="shirt2.jpg" alt="TIG Shirt">
+                <p>Trust in God Hoodie</p>
+                <button class="add-to-cart" data-product="Trust in God Hoodie">Add to Cart</button>
+            </div>
+        </div>
+    </section>
 
-    buttons.forEach(button => {
-        button.addEventListener("click", function () {
-            let productName = this.getAttribute("data-product");
-            addToCart(productName);
-        });
-    });
-});
+    <footer>
+        <p>&copy; 2025 TIG Apparel. All Rights Reserved.</p>
+    </footer>
+
+    <script src="shop.js"></script>
+</body>
+</html>
