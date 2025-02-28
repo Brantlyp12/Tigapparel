@@ -57,6 +57,25 @@
             border-radius: 10px;
             display: inline-block;
         }
+        .countdown {
+            margin-top: 50px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .faith-message {
+            margin-top: 50px;
+            font-size: 20px;
+            font-style: italic;
+        }
+        .socials {
+            margin-top: 50px;
+        }
+        .socials a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -79,10 +98,22 @@
         <a href="shop.html" class="shop-now">Shop Now</a>
     </section>
     
-    <section class="featured">
-        <h2>Feature of the Week</h2>
-        <p>Check out our exclusive faith-based design of the week!</p>
-        <img src="featured-shirt.jpg" alt="Featured Shirt" width="200">
+    <section class="faith-message">
+        <h2>Daily Inspiration</h2>
+        <p>"Trust in the Lord with all your heart and lean not on your own understanding." - Proverbs 3:5</p>
+    </section>
+    
+    <section class="countdown">
+        <h2>Limited-Time Sale!</h2>
+        <p>Hurry! Sale ends in:</p>
+        <div id="timer"></div>
+    </section>
+    
+    <section class="socials">
+        <h2>Follow Us</h2>
+        <a href="https://instagram.com/YOURUSERNAME" target="_blank">Instagram</a>
+        <a href="https://facebook.com/YOURUSERNAME" target="_blank">Facebook</a>
+        <a href="https://tiktok.com/@YOURUSERNAME" target="_blank">TikTok</a>
     </section>
     
     <section class="email-signup">
@@ -93,7 +124,25 @@
             <button type="submit">Subscribe</button>
         </form>
     </section>
+    
+    <script>
+        function countdown() {
+            let endDate = new Date("March 31, 2025 23:59:59").getTime();
+            let x = setInterval(function() {
+                let now = new Date().getTime();
+                let distance = endDate - now;
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("timer").innerHTML = "Sale Ended!";
+                }
+            }, 1000);
+        }
+        countdown();
+    </script>
 </body>
 </html>
-
-
