@@ -5,6 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIG Apparel | Trust in God</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            text-align: center;
+        }
+        .shop-now {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .shop-now:hover {
+            background-color: #444;
+        }
+        .email-signup {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+        }
+        .email-signup input {
+            background: transparent;
+            border: 2px solid #000;
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+            text-align: center;
+        }
+        .email-signup button {
+            background: transparent;
+            border: 2px solid #000;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .email-signup button:hover {
+            background: #000;
+            color: #fff;
+        }
+        .featured {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -26,6 +79,12 @@
         <a href="shop.html" class="shop-now">Shop Now</a>
     </section>
     
+    <section class="featured">
+        <h2>Feature of the Week</h2>
+        <p>Check out our exclusive faith-based design of the week!</p>
+        <img src="featured-shirt.jpg" alt="Featured Shirt" width="200">
+    </section>
+    
     <section class="email-signup">
         <h2>Stay Connected</h2>
         <p>Subscribe to get the latest updates, special offers, and new arrivals.</p>
@@ -34,6 +93,6 @@
             <button type="submit">Subscribe</button>
         </form>
     </section>
-    
 </body>
 </html>
+
