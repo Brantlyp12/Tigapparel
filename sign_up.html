@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | TIG Apparel</title>
+    <title>Sign Up | TIG Apparel</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
@@ -19,13 +18,13 @@
         };
         firebase.initializeApp(firebaseConfig);
 
-        function signIn() {
+        function signUp() {
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
-            firebase.auth().signInWithEmailAndPassword(email, password)
+            firebase.auth().createUserWithEmailAndPassword(email, password)
                 .then((userCredential) => {
-                    alert("Signed in successfully!");
-                    window.location.href = "index.html";
+                    alert("Account Created Successfully!");
+                    window.location.href = "sign_in.html";
                 })
                 .catch((error) => {
                     alert(error.message);
@@ -67,12 +66,13 @@
     </style>
 </head>
 <body>
-    <h1>Sign In</h1>
+    <h1>Sign Up</h1>
     <div class="auth-form">
         <input type="email" id="email" placeholder="Enter your email" required>
         <input type="password" id="password" placeholder="Enter your password" required>
-        <button onclick="signIn()">Sign In</button>
+        <button onclick="signUp()">Sign Up</button>
     </div>
-    <p>Don't have an account? <a href="sign_up.html">Sign Up</a></p>
+    <p>Already have an account? <a href="sign_in.html">Sign In</a></p>
 </body>
 </html>
+
