@@ -1,26 +1,34 @@
-// JavaScript for displaying and clearing the cart
-function displayCart() {
-    let cartList = document.getElementById('cart-list');
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    if (cartList) {
-        cartList.innerHTML = '';
-        if (cart.length === 0) {
-            cartList.innerHTML = '<p>Your cart is empty.</p>';
-        } else {
-            cart.forEach((item, index) => {
-                let listItem = document.createElement('li');
-                listItem.textContent = item;
-                cartList.appendChild(listItem);
-            });
-        }
-    }
-}
-
-function clearCart() {
-    localStorage.setItem('cart', JSON.stringify([]));
-    displayCart();
-    alert("Your cart has been cleared.");
-}
-
-document.addEventListener('DOMContentLoaded', displayCart);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | TIG Apparel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="cart-items">
+        <h2>Items in Your Cart</h2>
+        <ul id="cart-list"></ul>
+        <button onclick="clearCart()">Clear Cart</button>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 TIG Apparel. All Rights Reserved.</p>
+    </footer>
+    
+    <script src="cart.js"></script>
+</body>
+</html>
