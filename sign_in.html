@@ -12,18 +12,27 @@
 
     <script>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyAaouu5nUjvcI677y01iHpEXHV2BwpOxk0",
-            authDomain: "tigshirt.firebaseapp.com",
-            projectId: "tigshirt",
-            storageBucket: "tigshirt.firebasestorage.app",
-            messagingSenderId: "740292644851",
-            appId: "1:740292644851:web:de8b28c3a14b1184624c86",
-            measurementId: "G-DMHQ76B847"
+       <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+<script>
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAaouu5nUjvcI677y01iHpEXHV2BwpOxk0",
+        authDomain: "tigshirt.firebaseapp.com",
+        projectId: "tigshirt",
+        storageBucket: "tigshirt.firebaseapp.com",
+        messagingSenderId: "740292644851",
+        appId: "1:740292644851:web:de8b28c3a14b1184624c86",
+        measurementId: "G-DMHQ76B847"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
+
         };
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+    
 
         function signIn() {
             let email = document.getElementById('email').value;
